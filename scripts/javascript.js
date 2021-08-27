@@ -14,7 +14,7 @@ function createCustomElement(element, className, innerText) {
 
 function renderTemp(className, data) {
   let element = document.querySelector(`.${className}`);
-  element.innerText = `${data.toFixed(1)}`;
+  element.innerText = `${parseInt(data)}° C`;
 }
 
 function showDate(className, data) {
@@ -31,7 +31,7 @@ function createCustomElement(element, className, innerText) {
 
 function createImage(imageSource) {
   const img = document.createElement('img');
-  img.className = 'item__image';
+  img.className = 'weather-image';
   img.src = imageSource;
   return img;
 }
@@ -47,6 +47,7 @@ function createWeatherCard(iconUrl, temperature, monthlyDate) {
   return card;
 }
 const containerForecast = document.querySelector('.forecast');
+const mainIcon = document.querySelector('#main-icon');
 async function fetchApi() {
   try {
     const response = await fetch(`${apiUrl}`);
@@ -60,17 +61,20 @@ async function fetchApi() {
         let date = new Date(e.list[((i+1)*8)-1].dt * 1000);
         let monthlyDate = date.toLocaleDateString();
         let weather = e.list[((i+1)*8)-1].weather[0].description;
-        var iconCode= e.list[((i+1)*8)-1].weather[0].icon;
-        var iconUrl=`https://openweathermap.org/img/wn/${iconCode}.png`;
+        let iconCode= e.list[((i+1)*8)-1].weather[0].icon;
+        let iconUrl=`https://openweathermap.org/img/wn/${iconCode}.png`;
         let temperature = e.list[((i+1)*8)-1].main.temp;
         let minTemp = e.list[((i+1)*8)-1].main.temp_min;
         let maxTemp = e.list[((i+1)*8)-1].main.temp_max;
         let humidity = e.list[((i+1)*8)-1].main.humidity;
         console.log(monthlyDate, weather, temperature, minTemp, maxTemp, humidity);
-        containerForecast.appendChild(createWeatherCard(iconUrl, temperature, monthlyDate));
+        containerForecast.appendChild(createWeatherCard(iconUrl, `${parseInt(temperature)}° C`, monthlyDate));
       };
     });
 
+    let mainIconCode= jsonFetch.weather[0].icon;
+    let mainIconUrl=`https://openweathermap.org/img/wn/${mainIconCode}.png`;
+    mainIcon.appendChild(createImage(mainIconUrl));
     let todayDate = new Date(jsonFetch.dt * 1000);
     let todayIs = todayDate.toDateString();
     console.log(todayIs);
