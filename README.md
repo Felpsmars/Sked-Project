@@ -55,6 +55,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [OpenWeather](https://openweathermap.org/api)
 - [Bootstrap](https://www.https://getbootstrap.com/)
 - [Node.js](https://nodejs.org/en/)
+- [Vanilla Calendar](https://github.com/marssola/vanilla-calendar)
 
 ### Contribuições
 
@@ -62,3 +63,5 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 
 ### Licença
+
+MIT License.
