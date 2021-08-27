@@ -113,7 +113,7 @@ li {
 
 .weather-image {
   margin: 1rem 0;
-  max-width: 70%;
+  max-width: 90%;
 }
 
 .weather-column {
@@ -125,6 +125,7 @@ li {
   margin: 1rem;
 
 }
+
 
 .temperature {
   font-size: 1.75rem;
@@ -145,11 +146,11 @@ li {
 }
 
 #myCalendar {
-  margin-top: 15rem;
+  margin-top: 18rem;
 }
 
 .forecast {
-margin-top: 15vh;
+margin-top: 10vh;
 }
 
 @media (min-width: 767px) {
