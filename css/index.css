@@ -64,13 +64,6 @@ li {
   margin-left: 2rem;
 }
 
-#menu {
-  position: absolute;
-  right: 1rem;
-  top: 1rem;
-  fill: var(--font-color);
-}
-
 #logo {
   position: absolute;
   left: 1rem;
